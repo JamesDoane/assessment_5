@@ -1,8 +1,7 @@
 module.exports = {
     leaveMessage: (req,res)=>{
-        console.log("click")
-        let {message} = req.body
-        console.log(message)
+        // console.log("click")
+        let message = req.body.message
         res.status(200).send(message)
     },
     getVideo: (req,res) => {

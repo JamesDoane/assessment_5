@@ -32,14 +32,14 @@ document.getElementById("video").onclick = function () {
   let form = document.querySelector('form');
 form.addEventListener('submit', (evt)=>{
     evt.preventDefault();
-    let message = document.querySelector("input")
-
-    let messageObj = message.value
+    let message = document.getElementById('quote')
+  console.log(message.value)
+    let messageObj = {message: message.value}
 
     // console.log(toString(messageObj))
     axios.post("http://localhost:4000/api/message/", messageObj)
-        .then(({data: message})=> {
-            // const data = res.data
+        .then((res)=> {
+            const message = res.data
             p.innerHTML = ""
             p.innerHTML = `${message}`
         });
